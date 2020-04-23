@@ -62,11 +62,10 @@ struct PostView: View {
             Image("arches")
                 
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipped()
-                .frame(width:  400, height: 160)
+                .scaledToFit()
+                .frame(width:  400, height: 260)
                 
-        }.padding(.leading, -15)
+        }.padding(.leading, -20)
     }
 }
 
