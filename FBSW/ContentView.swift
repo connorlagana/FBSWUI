@@ -17,14 +17,17 @@ struct ContentView: View {
             List {
                 
                 ScrollView {
-                    Text("Trending")
-                    HStack {
-                        Text("Group1")
-                        Text("Group1")
-                        Text("Group1")
-                        Text("Group1")
+                    
+                    VStack (alignment: .leading) {
+                        Text("Trending")
+                        HStack {
+                            Text("Group1")
+                            Text("Group1")
+                            Text("Group1")
+                            Text("Group1")
+                        }
                     }
-                }
+                }.frame(height: 150)
                 
                 ForEach(posts, id: \.self) { post in
                     
