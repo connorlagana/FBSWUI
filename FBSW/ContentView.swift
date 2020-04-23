@@ -42,7 +42,11 @@ struct ContentView: View {
 struct PostView: View {
     var body: some View {
         VStack (alignment: .leading) {
-            Text("Username").font(.headline)
+            HStack {
+                Image("alex")
+                Text("Username").font(.headline)
+            }
+            
             Text("Caption")
             Image("arches")
         }.padding(.leading, -15)
