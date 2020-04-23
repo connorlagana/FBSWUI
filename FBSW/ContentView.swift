@@ -49,12 +49,23 @@ struct PostView: View {
                     .frame(width: 60, height: 60)
                 VStack (alignment: .leading, spacing: 4) {
                     Text("Alexandra Daddario").font(.headline)
-                    Text("Posted 18 minutes ago")
+                    Text("Posted 18 minutes ago").font(.subheadline)
                 }.padding(.leading, 8)
-            }
+                
+            }.padding(.leading, 16).padding(.top, 16)
             
             Text("Just had the time of my life at Arches National Park™. I wish Zac Efron was here so we can workout together and get super swoll!")
+                .lineLimit(nil)
+                .padding(.leading, 16)
+                .padding(.trailing, 16)
+                
             Image("arches")
+                
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .clipped()
+                .frame(width:  400, height: 160)
+                
         }.padding(.leading, -15)
     }
 }
