@@ -27,18 +27,25 @@ struct ContentView: View {
                             Text("Group1")
                         }
                     }
-                }.frame(height: 150)
+                }.frame(height: 100)
                 
                 ForEach(posts, id: \.self) { post in
-                    
-                    Text(post)
-                    
-                    
+                    PostView()
                 }
                 
             }.navigationBarTitle(Text("Groups"))
         }
         
+    }
+}
+
+struct PostView: View {
+    var body: some View {
+        VStack (alignment: .leading) {
+            Text("Username").font(.headline)
+            Text("Caption")
+            Image("arches")
+        }.padding(.leading, -15)
     }
 }
 
