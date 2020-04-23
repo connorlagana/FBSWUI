@@ -47,10 +47,13 @@ struct PostView: View {
                     .resizable()
                     .clipShape(Circle())
                     .frame(width: 60, height: 60)
-                Text("Username").font(.headline)
+                VStack (alignment: .leading, spacing: 4) {
+                    Text("Alexandra Daddario").font(.headline)
+                    Text("Posted 18 minutes ago")
+                }.padding(.leading, 8)
             }
             
-            Text("Caption")
+            Text("Just had the time of my life at Arches National Park™. I wish Zac Efron was here so we can workout together and get super swoll!")
             Image("arches")
         }.padding(.leading, -15)
     }
