@@ -69,7 +69,7 @@ struct PostView: View {
                     .frame(width: 60, height: 60)
                 VStack (alignment: .leading, spacing: 4) {
                     Text("\(post.username)").font(.headline)
-                    Text("Posted 18 minutes ago").font(.subheadline)
+                    Text("Posted 18 minutes ago").font(.subheadline).foregroundColor(.gray)
                 }.padding(.leading, 8)
                 
             }.padding(.leading, 16).padding(.top, 16)
