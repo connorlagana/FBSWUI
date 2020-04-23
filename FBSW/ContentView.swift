@@ -9,8 +9,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let posts = ["1", "2", "3"]
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            List {
+                
+                ScrollView {
+                    Text("Trending")
+                    HStack {
+                        Text("Group1")
+                        Text("Group1")
+                        Text("Group1")
+                        Text("Group1")
+                    }
+                }
+                
+                ForEach(posts, id: \.self) { post in
+                    
+                    Text(post)
+                    
+                    
+                }
+                
+            }.navigationBarTitle(Text("Groups"))
+        }
+        
     }
 }
 
