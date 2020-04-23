@@ -44,6 +44,9 @@ struct PostView: View {
         VStack (alignment: .leading) {
             HStack {
                 Image("alex")
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 60, height: 60)
                 Text("Username").font(.headline)
             }
             
