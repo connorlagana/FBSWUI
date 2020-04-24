@@ -15,11 +15,21 @@ struct Post: Identifiable {
 }
 
 struct Story: Identifiable {
-    
+    let id: Int
+    let username, imageName: String
 }
 
 
 struct ContentView: View {
+    
+    let stories: [Story] = [
+        .init(id: 0, username: "Zac Efron", imageName: "zac"),
+        .init(id: 1, username: "Martha Stewart", imageName: "martha"),
+        .init(id: 2, username: "Kygo", imageName: "kygo"),
+        .init(id: 3, username: "Mongoose", imageName: "mongoose"),
+        .init(id: 4, username: "Alexandra Daddario", imageName: "alex"),
+        .init(id: 5, username: "Kelly Kapowski", imageName: "kelly")
+    ]
     
     let posts: [Post] = [
         .init(id: 0, username: "Alexandra Daddario", text: "Just had the time of my life at Arches National Park™. I wish Zac Efron was here so we can workout together and get super swoll!", imageName: "arches", userImageName: "alex"),
@@ -61,7 +71,11 @@ struct ContentView: View {
 
 struct StoryView: View {
     let story: Story
-    
+    var body: some View {
+        VStack {
+            Text("Hello World")
+        }
+    }
 }
 
 struct PostView: View {
