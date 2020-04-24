@@ -19,6 +19,7 @@ struct Story: Identifiable {
     let username, imageName: String
 }
 
+let backs = ["back1", "back2", "back3", "back4", "back5", "back6"]
 
 struct ContentView: View {
     
@@ -79,6 +80,9 @@ struct ContentView: View {
 struct StoryDetailView: View {
     
     let story: Story
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    let rand = Int(arc4random_uniform(UInt32(backs.count)))
     
     var body: some View {
         VStack {
@@ -88,9 +92,13 @@ struct StoryDetailView: View {
                 .frame(width: 30, height: 30)
                 .clipShape(Circle())
                 Text("\(story.username)").font(.caption).foregroundColor(.white)
-            }.frame(height: 100, alignment: .trailing)
+            }.frame(width: 350, height: 730, alignment: .topLeading)
+
+        }.background(Image("\(backs[rand])").resizable().scaledToFill().frame(width: 400, height: 1000).clipped()).onAppear( perform: {
+            print("hello")
             
-        }.background(Image("bigsur").resizable().scaledToFill().frame(width: 600, height: 1600).clipped())
+        })
+        
         
     }
 }
@@ -114,7 +122,7 @@ struct PostView: View {
     
     let post: Post
     
-    let rand = Int(arc4random_uniform(UInt32(59)))
+    let rand = Int(arc4random_uniform(UInt32(60)))
     
     var body: some View {
         VStack (alignment: .leading, spacing: 12) {
