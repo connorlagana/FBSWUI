@@ -83,7 +83,7 @@ struct StoryView: View {
                 .scaledToFill()
                 .frame(width: 60, height: 60, alignment: .leading)
                 .clipShape(Circle())
-                .overlay(Circle().stroke(Color.red, lineWidth: 4))
+                .overlay(Circle().stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 248/255, green: 219/255, blue: 132/255), Color(red: 234/255, green: 132/255, blue: 59/255), Color(red: 197/255, green: 59/255, blue: 117/255), Color(red: 138/255, green: 55/255, blue: 184/255)]), startPoint: .bottomLeading, endPoint: .topTrailing), lineWidth: 4))
             Text("\(story.username)").lineLimit(1).font(.caption)
             }.frame(width: 70, height: 100)
     }
@@ -92,6 +92,8 @@ struct StoryView: View {
 struct PostView: View {
     
     let post: Post
+    
+    let rand = Int(arc4random_uniform(UInt32(59)))
     
     var body: some View {
         VStack (alignment: .leading, spacing: 12) {
@@ -103,7 +105,7 @@ struct PostView: View {
                     .frame(width: 60, height: 60)
                 VStack (alignment: .leading, spacing: 4) {
                     Text("\(post.username)").font(.headline)
-                    Text("Posted 18 minutes ago").font(.subheadline).foregroundColor(.gray)
+                    Text("Posted \(rand) minutes ago").font(.subheadline).foregroundColor(.gray)
                 }.padding(.leading, 8)
                 
             }.padding(.leading, 16).padding(.top, 16)
