@@ -54,7 +54,7 @@ struct ContentView: View {
                         VStack {
                             HStack {
                             ForEach(stories, id: \.id) { story in
-                                NavigationLink(destination: StoryDetailView()) {
+                                NavigationLink(destination: StoryDetailView(story: story)) {
                                     StoryView(story: story)
                                 }
                                 
@@ -77,8 +77,20 @@ struct ContentView: View {
 }
 
 struct StoryDetailView: View {
+    
+    let story: Story
+    
     var body: some View {
-        Text("Hello World")
+        VStack {
+            HStack {
+                Image("\(story.imageName)").resizable()
+                .scaledToFill()
+                .frame(width: 30, height: 30)
+                .clipShape(Circle())
+                Text("\(story.username)").font(.caption).foregroundColor(.white)
+            }.frame(height: 100, alignment: .trailing)
+        }.background(Image("bigsur").scaledToFill().clipped())
+        
     }
 }
 
@@ -89,7 +101,7 @@ struct StoryView: View {
             Image("\(story.imageName)").renderingMode(.original)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 60, height: 60, alignment: .leading)
+                .frame(width: 60, height: 60)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 248/255, green: 219/255, blue: 132/255), Color(red: 234/255, green: 132/255, blue: 59/255), Color(red: 197/255, green: 59/255, blue: 117/255), Color(red: 138/255, green: 55/255, blue: 184/255)]), startPoint: .bottomLeading, endPoint: .topTrailing), lineWidth: 4))
             Text("\(story.username)").foregroundColor(.primary).lineLimit(1).font(.caption)
