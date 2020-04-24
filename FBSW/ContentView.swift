@@ -35,13 +35,11 @@ struct ContentView: View {
                     
                     VStack (alignment: .leading) {
                         Text("Trending")
-                        HStack {
-                            Text("Group1")
-                            Text("Group1")
-                            Text("Group1")
-                            Text("Group1")
-                            Text("Group1")
-                            Text("Group1")
+                        VStack {
+                            Image("zac")
+                                .resizable()
+                                .frame(width: 60, height: 60, alignment: .leading)
+                                .clipShape(Circle())
                             Text("Group1")
                         }
                     }
@@ -85,7 +83,7 @@ struct PostView: View {
             Image("\(post.imageName)")
                 
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
                 .frame(width:  400, height: 260)
                 
             }.padding(.leading, -20)
