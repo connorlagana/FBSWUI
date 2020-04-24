@@ -89,7 +89,8 @@ struct StoryDetailView: View {
                 .clipShape(Circle())
                 Text("\(story.username)").font(.caption).foregroundColor(.white)
             }.frame(height: 100, alignment: .trailing)
-        }.background(Image("bigsur").scaledToFill().clipped())
+            
+        }.background(Image("bigsur").resizable().scaledToFill().frame(width: 600, height: 1600).clipped())
         
     }
 }
