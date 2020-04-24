@@ -14,6 +14,10 @@ struct Post: Identifiable {
     let username, text, imageName, userImageName: String
 }
 
+struct Story: Identifiable {
+    
+}
+
 
 struct ContentView: View {
     
@@ -34,25 +38,30 @@ struct ContentView: View {
                 ScrollView {
                     
                     VStack (alignment: .leading) {
-                        Text("Trending")
+                        Text("Stories")
                         VStack {
                             Image("zac")
                                 .resizable()
                                 .frame(width: 60, height: 60, alignment: .leading)
                                 .clipShape(Circle())
-                            Text("Group1")
-                        }
+                            Text("Zac Efron").lineLimit(1)
+                        }.frame(width: 100)
                     }
-                }.frame(height: 100)
+                }.frame(height: 180)
                 
                 ForEach(posts, id: \.id) { post in
                     PostView(post: post)
                 }
                 
-            }.navigationBarTitle(Text("Groups"))
+            }.navigationBarTitle(Text("Conbook"))
         }
         
     }
+}
+
+struct StoryView: View {
+    let story: Story
+    
 }
 
 struct PostView: View {
