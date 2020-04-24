@@ -45,19 +45,22 @@ struct ContentView: View {
             
             List {
                 
-                ScrollView {
-                    
-                    VStack (alignment: .leading) {
-                        Text("Stories")
+                VStack (alignment: .leading) {
+                    Text("Stories")
+                    ScrollView (.horizontal, showsIndicators: false) {
+                        
                         VStack {
-                            Image("zac")
-                                .resizable()
-                                .frame(width: 60, height: 60, alignment: .leading)
-                                .clipShape(Circle())
-                            Text("Zac Efron").lineLimit(1)
-                        }.frame(width: 100)
-                    }
-                }.frame(height: 180)
+                            HStack {
+                            ForEach(stories, id: \.id) { story in
+                                StoryView(story: story)
+                                
+                                }
+                            }
+                        }
+                    }.frame(height: 130).padding(.leading, -15).padding(.trailing, -15)
+                }
+                
+                
                 
                 ForEach(posts, id: \.id) { post in
                     PostView(post: post)
@@ -73,8 +76,12 @@ struct StoryView: View {
     let story: Story
     var body: some View {
         VStack {
-            Text("Hello World")
-        }
+            Image("\(story.imageName)")
+                .resizable()
+                .frame(width: 60, height: 60, alignment: .leading)
+                .clipShape(Circle())
+            Text("\(story.username)").lineLimit(1)
+            }.frame(width: 100)
     }
 }
 
