@@ -28,7 +28,9 @@ struct ContentView: View {
         .init(id: 2, username: "Kygo", imageName: "kygo"),
         .init(id: 3, username: "Mongoose", imageName: "mongoose"),
         .init(id: 4, username: "Alexandra Daddario", imageName: "alex"),
-        .init(id: 5, username: "Kelly Kapowski", imageName: "kelly")
+        .init(id: 5, username: "Kelly Kapowski", imageName: "kelly"),
+        .init(id: 6, username: "Con", imageName: "con"),
+        .init(id: 7, username: "Kevvy", imageName: "kev"),
     ]
     
     let posts: [Post] = [
@@ -80,8 +82,8 @@ struct StoryView: View {
                 .resizable()
                 .frame(width: 60, height: 60, alignment: .leading)
                 .clipShape(Circle())
-            Text("\(story.username)").lineLimit(1)
-            }.frame(width: 100)
+            Text("\(story.username)").lineLimit(1).font(.caption)
+            }.frame(width: 80)
     }
 }
 
