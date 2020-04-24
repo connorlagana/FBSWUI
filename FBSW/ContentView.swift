@@ -48,13 +48,15 @@ struct ContentView: View {
             List {
                 
                 VStack (alignment: .leading) {
-                    Text("Stories")
+                    Text("Stories").font(.headline)
                     ScrollView (.horizontal, showsIndicators: false) {
                         
                         VStack {
                             HStack {
                             ForEach(stories, id: \.id) { story in
-                                StoryView(story: story)
+                                NavigationLink(destination: StoryDetailView()) {
+                                    StoryView(story: story)
+                                }
                                 
                                 }
                             }
@@ -74,17 +76,23 @@ struct ContentView: View {
     }
 }
 
+struct StoryDetailView: View {
+    var body: some View {
+        Text("Hello World")
+    }
+}
+
 struct StoryView: View {
     let story: Story
     var body: some View {
         VStack {
-            Image("\(story.imageName)")
+            Image("\(story.imageName)").renderingMode(.original)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 60, height: 60, alignment: .leading)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(LinearGradient(gradient: Gradient(colors: [Color(red: 248/255, green: 219/255, blue: 132/255), Color(red: 234/255, green: 132/255, blue: 59/255), Color(red: 197/255, green: 59/255, blue: 117/255), Color(red: 138/255, green: 55/255, blue: 184/255)]), startPoint: .bottomLeading, endPoint: .topTrailing), lineWidth: 4))
-            Text("\(story.username)").lineLimit(1).font(.caption)
+            Text("\(story.username)").foregroundColor(.primary).lineLimit(1).font(.caption)
             }.frame(width: 70, height: 100)
     }
 }
