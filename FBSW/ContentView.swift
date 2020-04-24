@@ -83,7 +83,7 @@ struct StoryView: View {
                 .frame(width: 60, height: 60, alignment: .leading)
                 .clipShape(Circle())
             Text("\(story.username)").lineLimit(1).font(.caption)
-            }.frame(width: 80)
+            }.frame(width: 70)
     }
 }
 
