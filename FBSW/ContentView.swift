@@ -40,9 +40,12 @@ struct ContentView: View {
                             Text("Group1")
                             Text("Group1")
                             Text("Group1")
+                            Text("Group1")
+                            Text("Group1")
+                            Text("Group1")
                         }
                     }
-                }.frame(height: 100).background(Color.red)
+                }.frame(height: 100)
                 
                 ForEach(posts, id: \.id) { post in
                     PostView(post: post)
