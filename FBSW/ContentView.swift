@@ -80,10 +80,12 @@ struct StoryView: View {
         VStack {
             Image("\(story.imageName)")
                 .resizable()
+                .scaledToFill()
                 .frame(width: 60, height: 60, alignment: .leading)
                 .clipShape(Circle())
+                .overlay(Circle().stroke(Color.red, lineWidth: 4))
             Text("\(story.username)").lineLimit(1).font(.caption)
-            }.frame(width: 70)
+            }.frame(width: 70, height: 100)
     }
 }
 
@@ -96,8 +98,7 @@ struct PostView: View {
             HStack {
                 Image("\(post.userImageName)")
                     .resizable()
-                    //I don't know how to fix the stretch, this works but it makes the image smaller for some odd reason (not fixed amount tho)
-//                    .scaledToFit()
+                    .scaledToFill()
                     .clipShape(Circle())
                     .frame(width: 60, height: 60)
                 VStack (alignment: .leading, spacing: 4) {
